@@ -11,7 +11,9 @@ const PageWrapper = (props) => {
             <Header />
             <div className={styles.container}>
                 <Aside />
-                {props.children}
+                <div className={styles['inner-container']}>
+                    {props.children}
+                </div>
             </div>
             <Footer />
         </div>

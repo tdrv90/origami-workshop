@@ -1,12 +1,13 @@
 import React from 'react'
-import PageWrapper from '../../components/page-wrapper'
+import PageLayout from '../../components/page-layout'
 import styles from './index.module.css'
+import Title from '../../components/title'
 
 const ShareThoughtsPage = () => {
     return (
-        <PageWrapper>
-            
-        </PageWrapper>
+        <PageLayout>
+            <Title title='Share your thoughts...'/>
+        </PageLayout>
     )
 }
 

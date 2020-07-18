@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import PageWrapper from '../../components/page-wrapper'
-import Origam from '../../components/origam';
+import PageLayout from '../../components/page-layout'
+import Origam from '../../components/origam'
+import Title from '../../components/title'
 
 import styles from './index.module.css'
 
@@ -37,14 +38,14 @@ class Publications extends Component {
 
   render() {
     return (
-      <PageWrapper>
+      <PageLayout>
         <div className={styles.container}>
-          <h1 className={styles.title}>Publications</h1>
+          <Title title='Publications' />
           <div className={styles["origamis-wrapper"]}>
             {this.renderOrigamis()}
           </div>
         </div>
-      </PageWrapper>
+      </PageLayout>
     )
   }
 }
