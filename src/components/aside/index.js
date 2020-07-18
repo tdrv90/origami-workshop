@@ -10,7 +10,11 @@ const Aside = () => {
             {
                 links.map(navEl => {
                     return (
-                        <Link href={navEl.link} title={navEl.title} type="aside" />
+                        <Link
+                            key={navEl.title}
+                            href={navEl.link}
+                            title={navEl.title}
+                            type="aside" />
                     )
                 })
             }

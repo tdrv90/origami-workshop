@@ -13,7 +13,11 @@ const Header = () => {
             {
                 links.map(navEl => {
                     return (
-                        <Link href={navEl.link} title={navEl.title} type="header" />
+                        <Link
+                            key={navEl.title}
+                            href={navEl.link}
+                            title={navEl.title}
+                            type="header" />
                     )
                 })
             }
