@@ -36,7 +36,7 @@ class Origamis extends Component {
     render() {
         return (
             <div className={styles.container}>
-                <h1 className={styles.title}>Orgimis</h1>
+                <h1 className={styles.title}>Origamis</h1>
                 <div className={styles["origamis-wrapper"]}>
                     {this.renderOrigamis()}
                 </div>
