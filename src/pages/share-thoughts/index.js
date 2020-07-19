@@ -11,7 +11,7 @@ const ShareThoughtsPage = () => {
             <Title title='Share your thoughts...' />
             <div className={styles.container}>
                 <div>
-                    <textarea className={styles.textarea} defaultValue='Publication...'></textarea>
+                    <textarea className={styles.textarea} defaultValue='Publication...' />
                 </div>
                 <div>
                     <SubmitButton title="Submit" />
