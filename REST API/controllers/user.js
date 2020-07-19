@@ -4,9 +4,9 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
-        models.User.find()
-            .then((users) => res.send(users))
-            .catch(next)
+        models.User.findById(req.query.id)
+            .then((user) => res.send(user))
+            .catch((err) => res.status(500).send('Error'))
     },
 
     post: {
@@ -14,12 +14,12 @@ module.exports = {
             const { username, password } = req.body;
             models.User.create({ username, password })
                 .then((createdUser) => {
-                  console.log(createdUser)
-                  return res.send(createdUser)
+                    console.log(createdUser)
+                    return res.send(createdUser)
                 })
                 .catch((err) => {
 
-                  console.log(err)
+                    console.log(err)
                 })
         },
 
