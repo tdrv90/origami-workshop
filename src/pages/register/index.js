@@ -4,6 +4,7 @@ import Title from '../../components/title'
 import SubmitButton from '../../components/button/submit-button'
 import Input from '../../components/input'
 import authenticate from '../../utils/authenticate'
+import UserContext from '../../Context'
 
 import styles from './index.module.css'
 
@@ -17,6 +18,8 @@ class RegisterPage extends Component {
             repassword: ''
         }
     }
+
+    static contextType = UserContext
 
     handleChange = (event, type) => {
         const newState = {}
@@ -38,8 +41,9 @@ class RegisterPage extends Component {
                 username,
                 password
             },
-            () => {
+            (user) => {
                 console.log('Successful registration')
+                this.context.logIn(user)
                 this.props.history.push('/')
             },
             (error) => {
