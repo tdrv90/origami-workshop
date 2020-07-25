@@ -3,6 +3,7 @@ import PageLayout from '../../components/page-layout'
 import Title from '../../components/title'
 import SubmitButton from '../../components/button/submit-button'
 import Input from '../../components/input'
+import authenticate from '../../utils/authenticate'
 
 import styles from './index.module.css'
 
@@ -32,31 +33,18 @@ class RegisterPage extends Component {
             password
         } = this.state
 
-        try {
-            const promise = await fetch('http://localhost:9999/api/user/register', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username,
-                    password
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            const authToken = promise.headers.get('Authorization')
-            document.cookie = `x-auth-token=${authToken}`
-
-            const response = await promise.json()
-
-            console.log(response)
-
-            if (response.username && authToken) {
+        await authenticate('http://localhost:9999/api/user/register',
+            {
+                username,
+                password
+            },
+            () => {
+                console.log('Successful registration')
                 this.props.history.push('/')
-            }
-        } catch (error) {
-            console.error(error)
-        }
+            },
+            (error) => {
+                console.log('Error: ', error)
+            })
     }
 
     render() {
