@@ -7,20 +7,18 @@ import UserContext from '../../Context'
 import styles from './index.module.css'
 
 class Header extends Component {
-
     static contextType = UserContext
 
     render() {
         const {
-            loggedIn,
             user
         } = this.context
 
-        const links = getNavigation(loggedIn, user)
+        const links = getNavigation(user)
 
         return (
             <header className={styles.navigation}>
-                <img src={logo} className={styles.logo} />
+                <img alt="logo" src={logo} className={styles.logo} />
                 {
                     links.map(navEl => {
                         return (
